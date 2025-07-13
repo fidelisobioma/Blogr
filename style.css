@@ -1,49 +1,90 @@
-body {
+:root {
+  --fs-xl: 5rem;
+  --fs-600: 1.5rem;
+  --fs-500: 1.25rem;
+  --fs-400: 1rem;
+
+  --white: hsl(0, 100%, 100%);
+  --gray-900: hsl(240, 10%, 16%);
+  --gray-600: hsl(207, 13%, 34%);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  line-height: 1.7;
 }
 h2 {
-  font-weight: 700;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  line-height: 1.7;
+}
+h3 {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  line-height: 1.7;
 }
 p {
-  font-weight: normal;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.7;
 }
-.intro {
-  background-image: url(images/bg-pattern-intro-mobile.svg),
-    linear-gradient(to bottom, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 600px;
-  border-radius: 0px 0px 0px 70px;
+
+img {
+  width: 100%;
 }
+h2,
+h3 {
+  color: var(--gray-900);
+  margin-bottom: var(--margin-y);
+  text-align: center;
+}
+.menu {
+  width: 16px;
+  height: 16px;
+}
+.section1 .text div,
+.section1 h2,
+.section3 .text div,
+.footer div p {
+  margin: 30px 0;
+}
+body {
+  background-color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+ul li {
+  font-size: var(--fs-400);
+}
+
 .navbar-header .logo {
   font-size: 2rem;
   font-weight: 700;
-  color: hsl(0, 100%, 100%);
+  color: var(--white);
 }
-/* .navbar {
-  border: 1px solid black;
-} */
 .navbar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
 }
+
 .close {
   display: none;
 }
 .mobilenav {
   position: absolute;
   place-self: center;
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
   box-sizing: border-box;
-  background-color: hsl(0, 100%, 100%);
+  background-color: var(--white);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 20px;
   border-radius: 16px;
@@ -53,13 +94,14 @@ p {
   transition: visibility 0.3s ease, opacity 0.3s;
   visibility: hidden;
 }
+.mobilenav p {
+  padding: 0.7rem;
+}
 .showmodal {
   visibility: visible;
   opacity: 1;
 }
 .mobilenav ul {
-  padding: 0;
-  margin: 0;
   list-style-type: none;
 }
 .drop-down {
@@ -96,10 +138,7 @@ p {
   visibility: hidden;
   transition: height 0.3s ease, opacity 0.3s ease;
 }
-/* #content1,
-#content1,
-#content1 {
-} */
+
 .showcontent {
   height: fit-content;
   visibility: visible;
@@ -108,60 +147,55 @@ p {
 }
 .drop-down-content li {
   padding: 8px;
-  font-size: 1rem;
   font-weight: normal;
-  color: hsl(207, 13%, 34%);
+  color: var(--gray-600);
+}
+.intro {
+  background-image: url(images/bg-pattern-intro-mobile.svg),
+    linear-gradient(to bottom, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 550px;
+  border-radius: 0px 0px 0px 70px;
 }
 .intro-text {
-  padding: 20px;
+  padding: 3rem;
 }
-.intro-text h2,
+.intro-text h1,
 .intro-text p {
   text-align: center;
-  color: hsl(0, 100%, 100%);
+  color: var(--white);
 }
 
 .intro .button {
   display: flex;
   justify-content: center;
   gap: 10px;
-  padding: 20px;
+  padding: 0.5 3rem;
   text-align: center;
 }
 .button :first-child,
 .button :last-child {
-  background-color: hsl(0, 100%, 100%);
+  background-color: var(--white);
   padding: 12px 16px;
   border-radius: 16px;
-  border: 1px solid hsl(0, 100%, 100%);
+  border: 1px solid var(--white);
   font-size: 1rem;
   font-weight: normal;
-  cursor: pointer;
   transition: background 0.25s;
 }
 .button :first-child {
   color: hsl(356, 100%, 66%);
 }
-.button :first-child:hover {
-  background-color: hsl(355, 100%, 74%);
-  border: 1px solid hsl(355, 100%, 74%);
-  color: hsl(0, 100%, 100%);
-}
-.button :last-child:hover {
-  background-color: hsl(0, 100%, 100%);
-  color: hsl(356, 100%, 66%);
-}
+
 .button :last-child {
   background-color: transparent;
-  color: hsl(0, 100%, 100%);
+  color: var(--white);
 }
 .sign-up {
   margin-top: 32px;
   border-top: 1px solid hsl(207, 13%, 34%);
   text-align: center;
-}
-.mobilenav .sign-up p {
-  font-size: 1rem;
 }
 .mobilenav .sign-up button {
   background-image: linear-gradient(
@@ -172,17 +206,114 @@ p {
   padding: 8px 24px;
   border-radius: 16px;
   border: 1px solid hsl(353, 100%, 62%);
-  color: hsl(0, 100%, 100%);
+  color: var(--white);
   font-weight: normal;
 }
 .navbardesk,
-.navdesk {
+.navdesk,
+.desktop {
+  display: none;
+}
+main {
+  margin: auto;
+}
+.section1 {
+  padding: 3rem;
+  max-width: 80rem;
+  margin: auto;
+}
+.section1 h2,
+.section3 h2 {
+  color: hsl(240, 10%, 16%);
+  text-align: center;
+}
+.section1 p,
+.section3 p {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--gray-600);
+}
+.section2 {
+  position: relative;
+
+  height: 700px;
+}
+
+.section2-bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image: url(images/bg-pattern-circles.svg),
+    linear-gradient(hsl(237, 17%, 21%), hsl(237, 23%, 31%));
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top center;
+  height: 550px;
+  border-radius: 0 100px 0 100px;
+}
+
+.section2-container {
+  padding: 3rem;
+  max-width: 80rem;
+}
+.section2-text h3,
+.section2-text p {
+  text-align: center;
+  color: var(--white);
+}
+.section3 {
+  padding: 3rem;
+}
+.section3 p,
+.section3 h2,
+footer h3,
+footer p {
+  text-align: center;
+}
+
+.section3 .deskimage {
+  display: none;
+}
+footer {
+  padding: 3rem;
+  border-radius: 0 100px 0 0;
+  background-color: hsl(240, 10%, 16%);
+}
+.footer {
+  max-width: 80rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+footer ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-align: center;
+  display: grid;
+  gap: 10px;
+}
+footer p,
+footer h3 {
+  font-weight: 700;
+  color: var(--white);
+}
+footer ul li {
+  color: #ccc;
+}
+.section2desk {
   display: none;
 }
 @media screen and (min-width: 768px) {
+  h2,
+  h3 {
+    text-align: left;
+  }
   .navbar-header {
     display: none;
-    border: 1px solid white;
   }
   .intro {
     background-image: url(images/bg-pattern-intro-desktop.svg),
@@ -191,16 +322,16 @@ p {
   }
   .navbardesk {
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
-    max-width: 1280px;
-    /* border: 1px solid #fff; */
+    gap: 20px;
+    max-width: 80rem;
+    padding: 0 3rem;
     margin: auto;
   }
+
   .navdesk {
     display: block;
-
-    padding: 20px;
+    padding: 3rem;
   }
   .drop-down-desk {
     display: flex;
@@ -209,29 +340,27 @@ p {
   }
   .drop-down-desk p {
     font-size: 1rem;
-    color: hsl(0, 100%, 100%);
+    color: var(--white);
   }
   .navbardesk .logo {
     font-size: 2rem;
     font-weight: 700;
-    color: hsl(0, 100%, 100%);
+    color: var(--white);
+    cursor: pointer;
   }
-  .navbardesk nav {
+  .nav {
     display: flex;
+    gap: 30px;
     flex: 1;
-    /* justify-content: space-between; */
     align-items: center;
   }
-  /* .navbar {
-    display: flex;
-  } */
   .desk-content {
     list-style-type: none;
-    /* margin: 0; */
     padding: 10px;
     position: absolute;
     visibility: hidden;
-    background-color: hsl(0, 100%, 100%);
+    background-color: var(--white);
+    border-radius: 8px;
   }
   .drop,
   .drop1,
@@ -267,14 +396,15 @@ p {
   .register {
     display: flex;
     gap: 16px;
-    /* border: 1px solid #fff; */
     align-items: center;
   }
   .register button {
-    background-color: hsl(0, 100%, 100%);
+    background-color: var(--white);
+    width: 100%;
+    overflow: hidden;
     padding: 12px 16px;
     border-radius: 16px;
-    border: 1px solid hsl(0, 100%, 100%);
+    border: 1px solid var(--white);
     font-size: 0.9rem;
     font-weight: normal;
     color: hsl(356, 100%, 66%);
@@ -284,21 +414,17 @@ p {
   .register button:hover {
     background-color: hsl(355, 100%, 74%);
     border: 1px solid hsl(355, 100%, 74%);
-    color: hsl(0, 100%, 100%);
+    color: var(--white);
   }
   .register p {
-    color: hsl(0, 100%, 100%);
+    color: var(--white);
     cursor: pointer;
-    font-size: 1rem;
   }
 
   .underline-hover {
     position: relative;
     display: inline-block;
     text-decoration: none;
-    color: #3b82f6; /* Tailwind's blue-500 */
-    font-size: 1.5rem;
-    font-weight: 600;
   }
 
   .underline-hover::after {
@@ -308,7 +434,7 @@ p {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: hsl(0, 100%, 100%);
+    background-color: var(--white);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease-in-out;
@@ -316,5 +442,118 @@ p {
 
   .underline-hover:hover::after {
     transform: scaleX(1);
+  }
+  .button :first-child:hover {
+    background-color: hsl(355, 100%, 74%);
+    border: 1px solid hsl(355, 100%, 74%);
+    color: var(--white);
+    cursor: pointer;
+  }
+  .button :last-child:hover {
+    background-color: var(--white);
+    color: hsl(356, 100%, 66%);
+    cursor: pointer;
+  }
+  .section1 {
+    padding: 3rem 0 3rem 3rem;
+  }
+  .section1 .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+  }
+  .about .image {
+    order: 2;
+    transform: translate(140px);
+  }
+
+  .desktop {
+    display: block;
+  }
+  .mobile {
+    display: none;
+  }
+  .text {
+    max-width: 600px;
+  }
+  .section1 p,
+  .text h2 {
+    text-align: left;
+  }
+  .section2 {
+    position: relative;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    height: unset;
+  }
+  .section2-bg {
+    bottom: unset;
+    height: 100%;
+    width: 100%;
+    height: calc(100% - 20px);
+    background-size: auto;
+    background-position: bottom left;
+  }
+  .section2-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section2-text p,
+  .section2-text h3 {
+    text-align: left;
+  }
+
+  .phoneimage {
+    display: block;
+
+    margin-top: -100px;
+    margin-bottom: -120px;
+    z-index: 2;
+  }
+  .section2desk {
+    display: block;
+    margin: auto;
+  }
+  .section3 {
+    max-width: 80rem;
+    margin: auto;
+    padding: 3rem 0 3rem 3rem;
+  }
+  .section3 .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section3 p,
+  .section3 h2 {
+    text-align: left;
+  }
+  .section3 .deskimage {
+    transform: translatex(-250px);
+    width: 130%;
+    display: inline-block;
+  }
+
+  .section3 .image {
+    display: none;
+  }
+  .footer {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  footer h3,
+  footer p {
+    text-align: left;
+  }
+  footer ul {
+    text-align: left;
   }
 }
