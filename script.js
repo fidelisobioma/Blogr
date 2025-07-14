@@ -11,7 +11,7 @@ const open = document.querySelector(".open");
 
 dropDown.forEach((btn) => {
   btn.addEventListener("click", (event) => {
-    const target = event.target.id;
+    const target = event.target.parentElement.id;
     switch (target) {
       case "product":
         content1.classList.toggle("showcontent");
