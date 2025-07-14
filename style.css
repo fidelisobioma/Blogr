@@ -303,6 +303,7 @@ footer h3 {
 }
 footer ul li {
   color: #ccc;
+  padding: 5px;
 }
 .section2desk {
   display: none;
